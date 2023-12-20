@@ -3,44 +3,55 @@ import Nav from './components/Nav'
 import Hero from './components/Hero'
 
 import styled from 'styled-components'
+import Projects from './components/Projects'
+import Tech from './components/Tech'
+import About from './components/About'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
+import Sidebar from './components/Sidebar'
+
+import ScrollReveal from 'scrollreveal'
 
 const Main = styled.main`
     margin: 88px auto;
-    max-width: 50dvw;
     min-height: 88vh;
     min-height: 88dvh;
-    border: 1px solid white;
+    max-width: 50dvw;
+    @media screen and (max-width: 776px) {
+      max-width: 80dvw;
+
+    }
 `
 
 function App() {
+
+  ScrollReveal({ reset: true });
+  ScrollReveal().reveal('.nav', { delay: 250 });
+  ScrollReveal().reveal('.hero', { delay: 250 });
+  ScrollReveal().reveal('.projects', { delay: 400 });
+  ScrollReveal().reveal('.tech', { delay: 400 });
+  ScrollReveal().reveal('.about', { delay: 400 });
+  ScrollReveal().reveal('.contact', { delay: 400 });
 
   return (
     <>
       <Nav/>
 
       <Main>
-        <Hero/>
+          <Hero/>
+            
+          <Projects/>
           
-        <section className="projects">
+          <Tech/>
+
+          <About/>
           
-        </section>
-        <section className="tech">
-          
-        </section>
-        <section className="about">
-          
-        </section>
-        <section className="contact">
-          
-        </section>
+          <Contact/>
       </Main>
 
-      <footer className="footer">
-        
-      </footer>
-      <nav className="sidebar">
-        
-      </nav>
+      <Footer/>
+    
+      <Sidebar/>
     </>
   )
 }

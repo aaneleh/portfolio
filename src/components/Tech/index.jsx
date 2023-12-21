@@ -6,7 +6,10 @@ import styled from 'styled-components'
 const CardsWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     gap: 2em;
+    max-width: 40em;
+    min-width: 16em;
 `
 
 function Tech() {
@@ -16,13 +19,13 @@ function Tech() {
             <h2>Tech</h2>
             <CardsWrapper>
                 <TechCard name="Javascript" icon={ <SiJavascript/> } />
-                <TechCard name="Javascript" icon={ <SiReact/> } />
-                <TechCard name="Javascript" icon={ <DiNodejs/> } />
-                <TechCard name="Javascript" icon={ <SiPhp/> } />
-                <TechCard name="Javascript" icon={ <SiMongodb/> } />
-                <TechCard name="Javascript" icon={ <SiCss3/> } />
-                <TechCard name="Javascript" icon={ <DiSass/> } />
-                <TechCard name="Javascript" icon={ <SiTailwindcss/> } />
+                <TechCard name="React" icon={ <SiReact/> } />
+                <TechCard name="NodeJs" icon={ <DiNodejs/> } />
+                <TechCard name="PHP" icon={ <SiPhp/> } />
+                <TechCard name="MongoDB" icon={ <SiMongodb/> } />
+                <TechCard name="CSS" icon={ <SiCss3/> } />
+                <TechCard name="Sass" icon={ <DiSass/> } />
+                <TechCard name="Tailwind" icon={ <SiTailwindcss/> } />
             </CardsWrapper>
         </section>
     )

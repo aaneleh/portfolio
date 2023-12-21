@@ -20,14 +20,17 @@ body {
     //sombras e bg-claro A39B8B
     //fonte 03191E
     //colorido DD1155 4E4187
-    --font: #03191E;
+/*     --font: #03191E;
     --light-bg: #A39B8B;
-    --bg: #F1E9DB;
+    --bg: #F1E9DB; */
 
     //paleta 2
     //preto 040F16
     //branco FBFBFF
     //colorido 59C9A5 e 426B69
+    --font: #FBFBFF;
+    --light-bg: hsl(203, 69%, 15%);
+    --bg: #040F16;
 
     background: var(--bg);
     color: var(--font);
@@ -51,13 +54,18 @@ a, Link {
 a {
     color: #dcdcdc;
 }
-
+input, button {
+    font-family: 'Inter', sans-serif;
+}
 .icon{
     font-size: 1.25em;
 }
 section {
     scroll-snap-align: start;
     scroll-margin-top: 56px;
+    scroll-margin-bottom: 20vw;
+    scroll-margin-bottom: 20dvw;
+    min-height: 80vh;
     min-height: 80dvh;
     display: flex;
     flex-direction: column;
@@ -67,6 +75,5 @@ section {
     }
 }
 footer {
-    scroll-snap-align: end;
-    scroll-margin-top: 56px;
+    scroll-snap-align: center;
 }

@@ -12,13 +12,13 @@ import Contact from './components/Contact/index.jsx'
 
 
 const Main = styled.main`
+
     margin: 88px auto;
     min-height: 88vh;
     min-height: 88dvh;
     max-width: 50dvw;
     @media screen and (max-width: 776px) {
       max-width: 80dvw;
-
     }
 `
 

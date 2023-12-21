@@ -13,12 +13,15 @@ import Sidebar from './components/Sidebar'
 import ScrollReveal from 'scrollreveal'
 
 const Main = styled.main`
+    position: relative;
+    left: 100px;
     margin: 88px auto;
     min-height: 88vh;
     min-height: 88dvh;
-    max-width: 50dvw;
+    max-width: 60dvw;
     @media screen and (max-width: 776px) {
       max-width: 80dvw;
+      left: 0px;
 
     }
 `

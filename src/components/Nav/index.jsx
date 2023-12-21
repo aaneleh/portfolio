@@ -78,7 +78,7 @@ function Nav() {
         <Navigation className="nav"> 
             <Link to="/">
                 <h3>
-                    LoremIpsum {/* @todo nome */}
+                    HelenaKurz 
                 </h3>
             </Link>
             <Button onClick={ ()=> setSidebar(!sidebar) }>

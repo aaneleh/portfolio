@@ -5,17 +5,17 @@ const Wrapper = styled.div`
     width: 4em;
     display: flex;
     flex-direction: column;
+    gap: 1em;
     justify-content: center;
     align-items: center;
     background-color: var(--light-bg);
     border-radius: 1em;
     padding: 1.5em;
     * {
-        font-size: 4em;
+        font-size: 5em;
     }
     p {
         font-size: 1em;
-        height: 0.25em;
     }
 `
 

@@ -6,10 +6,8 @@ const FooterWrapper = styled.footer`
     display: flex;
     align-items: flex-start; //@todo flex-start ou center?
     justify-content: space-between;
-    padding: 1em 2em;
-    width: 90vw;
-    width: 90dvw;
-    overflow: hidden;
+    padding: 1em 4em 4em;
+    width: calc(90dvw - 4em);
     @media screen and (max-width: 776px){
         flex-direction: column;
         align-items: center;
@@ -21,7 +19,6 @@ const FooterWrapper = styled.footer`
     }
 ` 
 const FooterContainers = styled.div`
-
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -38,7 +35,7 @@ function Footer() {
             <FooterContainers>
                 <Link to="/">
                     <h3>
-                        LoremIpsum {/* @todo nome */}
+                        HelenaKurz
                     </h3>
                 </Link>
                 <Link to="/projetos">Projetos</Link>

@@ -4,12 +4,12 @@ import styled from 'styled-components'
 const Wrapper = styled.div`
     border: 1px solid white;
     max-width: 32em;
+
 `
 const Cover = styled.div`
     background-color: var(--light-bg); //@todo aqui vai um bg image
     height: 12em;
-    /* min-width: 24em; */
-    max-width: 32em;
+
     display: grid;
     align-content: end;
 `

@@ -7,7 +7,7 @@ const SidebarWrapper = styled.nav`
     gap: 1em;
     position: fixed;
     top: 50%;
-    left: 0;
+    left: 16px;
     transform: translateY(-50%);
     @media screen and (max-width: 776px) {
         bottom: 0;

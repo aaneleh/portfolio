@@ -37,6 +37,8 @@ const Button = styled.div`
 const Socials = styled.div`
     display: inline-flex;
     gap: 2em;
+    background: var(--bg);
+
 
     @media screen and (max-width: 776px) {
         position: fixed;
@@ -85,19 +87,19 @@ function Nav() {
                 <BsFillGridFill/>
             </Button>
             <Socials className={ sidebar ? "active" : ""}>
-                <a href="/" target="_blank">
+                <a href="https://mail.google.com/mail/u/0/?fs=1&to=helenakurzgon@gmail.com&tf=cm" target="_blank">
                     helenakurzgon@gmail.com
                 </a>
-                <a href="/" target="_blank" className="icon">
+                <a href="https://github.com/aaneleh" target="_blank" className="icon">
                     <BsGithub />
                 </a>
-                <a href="/" target="_blank" className="icon">
+                <a href="https://br.linkedin.com/in/helena-kurz-1738a2256" target="_blank" className="icon">
                     <BsLinkedin />
                 </a>
-                <a href="/" target="_blank" className="icon">
+                <a href="https://twitter.com/helena_kurzzz" target="_blank" className="icon">
                     <BsTwitterX />
                 </a>
-                <a href="/" target="_blank" className="icon">
+                <a href="https://www.instagram.com/helena.kurz/" target="_blank" className="icon">
                     <BsInstagram />
                 </a>
             </Socials>

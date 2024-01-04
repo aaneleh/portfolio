@@ -1,11 +1,18 @@
+import styled from 'styled-components'
+
+const Wrapper = styled.section`
+    h1 {
+        margin-bottom: 20px;
+    }
+`
 
 function Hero() {
 
     return (
-        <section className="hero">
+        <Wrapper className="hero">
             <h1>Olá</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus iusto libero architecto voluptatem eius officiis facere rem culpa recusandae, eum minima placeat laudantium minus amet.</p>
-        </section>
+            <p>Me chamo Helena! Sou uma desenvolvera web, atualmente focada em front-end com React.</p>
+        </Wrapper>
     )
 }
 

@@ -7,9 +7,9 @@ const Wrapper = styled.div`
 
 `
 const Cover = styled.div`
-    background-color: var(--light-bg); //@todo aqui vai um bg image
     height: 12em;
-
+    position: relative;
+    overflow: hidden;
     display: grid;
     align-content: end;
 `
@@ -22,6 +22,18 @@ const Links = styled.div`
         font-size: 1.75em;
     }
 `
+const CoverImage = styled.img`
+    position: absolute;
+    top:0;
+    left:0;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: var(--light-bg); 
+
+`
 const Flex = styled.div`
     display: inline-flex;
     gap: 1em;
@@ -29,6 +41,9 @@ const Flex = styled.div`
 const Description = styled.div`
     max-width: 32em;
     padding: 0 1em 1em;
+    p, a {
+        font-size: 16px;
+    }
     & * {
         padding-top: 1em;
     }
@@ -45,10 +60,11 @@ function ProjectsCard({github, youtube, website, image, name, description, chips
     return (
         <Wrapper className="projects-card">
             <Cover>
+                <CoverImage src={image}/>
                 <Links>
                     <Flex>
                         <a href={github} target="_blank">
-                            <BsGithub />
+                            <BsGithub /> {/* @todo ajustar cor icone */}
                         </a>
                         <a href={youtube} target="_blank">
                             <BsYoutube />
@@ -56,13 +72,13 @@ function ProjectsCard({github, youtube, website, image, name, description, chips
                     </Flex>
                     <div>
                         <a href={website} target="_blank">
-                            <BsArrowUpRight />
+                            <BsArrowUpRight /> {/* @todo if==null não mostrar */}
                         </a>
                     </div>
                 </Links>
             </Cover>
             <Description>
-                <h4>{name}</h4>
+                <h4>{name}</h4> {/* @todo deixar um link no nome também */}
                 <p>{description}</p>
                 <Flex>
                     {

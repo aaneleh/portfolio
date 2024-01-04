@@ -1,4 +1,8 @@
 import styled from 'styled-components'
+import { useState } from 'react'
+
+const API_KEY = import.meta.env.VITE_SG_APIKEY
+const API_EMAIL = import.meta.env.VITE_SG_EMAIL
 
 const InputContainer = styled.div`
     display: grid;
@@ -43,22 +47,92 @@ const Button = styled.button`
 `
 
 function Contact() {
+    
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        body: '',
+    })
+
+    const handleChange = (e) => {
+        setFormData((old) => {
+            return {
+                ...old,
+                [e.target.name]: e.target.value
+            }
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        if(!formData.email.includes('@') || formData.email.length < 11 ||
+        formData.name.length < 2 || formData.body.length < 2) {
+            alert('dados incompletos')
+            console.log('dados incompletos')
+            return
+        }
+
+        const apiKey = API_KEY
+        const apiEmail = API_EMAIL
+        
+        sendEmail({
+            apiKey: apiKey,
+            to: formData.email,
+            from: apiEmail,
+            subject: 'Título',
+            html: '<h4>Agredeço a mensagem, entrarei em contato assim que possível</h4><p>Abaixo incluo uma cópia da mensagem enviada:</p><br>' + formData.body
+        }) ?
+            alert("Email enviado com sucesso, obrigada pelo contato!")
+        :
+            alert('Erro ao enviar email!');
+
+        sendEmail({
+            apiKey: apiKey,
+            to: apiEmail,
+            from: apiEmail,
+            subject: 'Contato a partir do portifolio',
+            html: formData.body + "<br>Enviado por: " + formData.email
+        })
+    }
+
+    const sendEmail = async(body) => {
+        try {
+            const res = await fetch(
+            'https://enviador.vercel.app/', 
+            {
+                method: 'POST',
+                body: JSON.stringify(body),
+                headers:  {
+                'Content-Type': 'application/json'
+                },
+            }
+            );
+            const resTxt = await res.text();
+            console.log(resTxt);
+            return true
+        } catch (err) {
+            console.log(err);
+            return false
+        }
+
+    }
 
     return (
         <section className="contact" id="contato">
             <h2>Contato</h2>
-            <form onSubmit={(e)=> e.preventDefault}>
+            <form onSubmit={handleSubmit}>
                 <InputContainer>
                     <label htmlFor="">Nome</label>
-                    <RoundedInput type="text" />
+                    <RoundedInput type="text" name="name" onChange={handleChange}/>
                 </InputContainer>
                 <InputContainer>
                     <label htmlFor="">Email</label>
-                    <RoundedInput type="text" />
+                    <RoundedInput type="text" name="email" onChange={handleChange}/>
                 </InputContainer>
                 <InputContainer>
                     <label htmlFor="">Mensagem</label>
-                    <RoundedTextArea name="" id="" cols="30" rows="10"></RoundedTextArea>
+                    <RoundedTextArea name="body" id="" cols="30" rows="10" onChange={handleChange}></RoundedTextArea>
                 </InputContainer>
                 <InputContainer>
                     <Button>

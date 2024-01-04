@@ -8,38 +8,30 @@ html {
     scroll-behavior: smooth;
     scroll-snap-type: y proximity;
 }
+
 body {
     font-family: 'Inter', sans-serif;
-    //paleta 0
-    /* --font: #dcdcdc;
-    --light-bg: grey;
-    --bg: #323232; */
-
-    //paleta 1
-    //bg F1E9DB
-    //sombras e bg-claro A39B8B
-    //fonte 03191E
-    //colorido DD1155 4E4187
-/*     --font: #03191E;
-    --light-bg: #A39B8B;
-    --bg: #F1E9DB; */
-
-    //paleta 2
-    //preto 040F16
-    //branco FBFBFF
-    //colorido 59C9A5 e 426B69
-    --font: #FBFBFF;
-    --light-bg: hsl(203, 69%, 15%);
+    //verdes bonitos: 59C9A5 e 426B69
+    --font: #FBFBFF; /* @todo confirmar cores */
+    --light-bg: #0c2c41;
     --bg: #040F16;
 
     background: var(--bg);
     color: var(--font);
     overflow-x: hidden;
 }
+@media (prefers-color-scheme: light) {
+    body {
+        --font: #040F16;
+        --light-bg: #bebed0;
+        --bg: #FBFBFF;
+    }
+}
 h1 {
     font-weight: 500;
     font-size: 80px;
 }
+
 h2 {
     font-weight: 500;
     font-size: 48px;
@@ -47,6 +39,9 @@ h2 {
 h3 {
     font-weight: 500;
     font-size: 32px;
+}
+p {
+    font-size: 20px;
 }
 a, Link {
     text-decoration: none;

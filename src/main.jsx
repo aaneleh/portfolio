@@ -15,7 +15,7 @@ const Main = styled.main`
     margin: 88px auto;
     min-height: 88vh;
     min-height: 88dvh;
-    max-width: 50dvw;
+    max-width: 70dvw;
     @media screen and (max-width: 776px) {
       max-width: 80dvw;
     }
@@ -25,7 +25,7 @@ function ProjectsPage(){
   return (
     <>
       <Nav/>
-      <Main>
+      <Main >
           <Projects/>
       </Main>
       <Footer/>

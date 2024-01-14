@@ -77,18 +77,19 @@ function Sidebar() {
 
     useEffect(() => {
         const updatePosition = () => {
-            if(window.innerWidth < 1300) {
+            /* alert(window.innerWidth) */
+            if(window.innerWidth < 1600) {
                 setActiveSection(()=> {
-                    if(window.scrollY > 500 && window.scrollY < 2500) {
+                    if(window.scrollY > 400 && window.scrollY < 3300) {
                         return 1
                     } else
-                    if (window.scrollY >= 2500 && window.scrollY < 3400){
+                    if (window.scrollY >= 3300 && window.scrollY < 4400){
                         return 2
                     } else 
-                    if (window.scrollY >= 3400 && window.scrollY < 4400) {
+                    if (window.scrollY >= 4400 && window.scrollY < 5400) {
                         return 3
                     } else 
-                    if (window.scrollY >= 4400) {
+                    if (window.scrollY >= 5400) {
                         return 4
                     }
                 })
@@ -97,13 +98,13 @@ function Sidebar() {
                     if(window.scrollY > 500 && window.scrollY < 1700) {
                         return 1
                     } else
-                    if (window.scrollY >= 1700 && window.scrollY < 2400){
+                    if (window.scrollY >= 1700 && window.scrollY < 2600){
                         return 2
                     } else 
-                    if (window.scrollY >= 2400 && window.scrollY < 3100) {
+                    if (window.scrollY >= 2600 && window.scrollY < 3400) {
                         return 3
                     } else 
-                    if (window.scrollY >= 3100) {
+                    if (window.scrollY >= 3400) {
                         return 4
                     }
                 })

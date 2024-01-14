@@ -10,6 +10,7 @@ const Wrapper = styled.div`
         text-align: justify;
         margin-bottom: 2em;
         line-height: 1.35em;
+        max-width: 48em;
     }
     
     @media screen and (min-width: 1200px){

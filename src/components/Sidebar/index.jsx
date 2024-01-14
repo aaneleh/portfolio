@@ -1,10 +1,11 @@
-import styled from 'styled-components'
 import { useEffect, useState } from "react"
+import { BsStack, BsCodeSlash, BsFillPersonLinesFill, BsChatSquareTextFill } from "react-icons/bs";
+import styled from 'styled-components'
 
 const SidebarWrapper = styled.nav`
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 1.5em;
     position: fixed;
     top: 50%;
     left: 16px;
@@ -14,7 +15,7 @@ const SidebarWrapper = styled.nav`
         left: 0;
         top: auto;
         transform: translateY(0%);
-        gap: 2em;
+        gap: 3em;
         flex-direction: row;
         justify-content: center;
         width: 100dvw;
@@ -22,11 +23,11 @@ const SidebarWrapper = styled.nav`
         box-shadow: 0px -4px 8px var(--light-bg);
     }
     * {
-    color: var(--font);
+        color: var(--font);
     }
 ` 
-
 const ItemWrapper = styled.div`
+    /* desktop bar */
     position: relative;
     display: flex;
     align-items: center;
@@ -34,34 +35,44 @@ const ItemWrapper = styled.div`
     cursor: pointer;
     p {
         display: inline-flex;
+        position: relative;
         gap: 0.5em;
         height: 2.5em;
         font-size: ${props => props.$active ? "28px" : "20px"};
+        top: ${props => props.$active ? "2px" : "0px"};
         transition: font-size 150ms;
         &::before {
             content: "—";
         }
     }
+    /* mobile bar invisible */
+    h3 {
+        position: absolute;
+        visibility: hidden;
+    }
+    /* mobile bar */
     @media screen and (max-width: 776px) {
         height: 4em;
         width: 58px;
         padding: 1em 0;
+        /* desktop bar invisible */
         p {
             position: absolute;
             visibility: hidden;
         }
-        h3{
-            width: ${props => props.$active ? "56px" : "40px"};
-            height:  ${props => props.$active ? "56px" : "40px"};
-            background: var(--font); /* @todo aqui vai um icone */
-            border-radius: 100%;
+        /* icones */
+        h3 {
+            position: relative;
+            visibility: visible;
+            font-size: ${props => props.$active ? "44px" : "36px"};
+            top: 4px;
+            right: ${props => props.$active ? "4px" : "0px"};
             transition: all 150ms;
         }
     }
 `
 
 function Sidebar() {
-
     const [activeSection, setActiveSection] = useState(0);
 
     useEffect(() => {
@@ -108,25 +119,25 @@ function Sidebar() {
             <ItemWrapper $active={activeSection == 1}>
                 <a href="#projetos">
                     <p> Projetos </p>
-                    <h3></h3>
+                    <h3> <BsStack/> </h3>
                 </a>
             </ItemWrapper>
             <ItemWrapper $active={activeSection == 2}>
                 <a href="#tech">
                     <p> Tech </p>
-                    <h3></h3>
+                    <h3> <BsCodeSlash/> </h3>
                 </a>
             </ItemWrapper>
             <ItemWrapper $active={activeSection == 3}>
                 <a href="#sobre">
                     <p> Sobre </p>
-                    <h3></h3>
+                    <h3> <BsFillPersonLinesFill/> </h3>
                 </a>
             </ItemWrapper>
             <ItemWrapper $active={activeSection == 4}>
                 <a href="#contato">
                     <p> Contato </p>
-                    <h3></h3>
+                    <h3> <BsChatSquareTextFill/> </h3>
                 </a>
             </ItemWrapper>
         </SidebarWrapper>

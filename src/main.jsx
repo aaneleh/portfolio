@@ -12,7 +12,6 @@ import Contact from './components/Contact/index.jsx'
 
 
 const Main = styled.main`
-
     margin: 88px auto;
     min-height: 88vh;
     min-height: 88dvh;

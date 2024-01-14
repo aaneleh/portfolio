@@ -14,14 +14,15 @@ import ScrollReveal from 'scrollreveal'
 
 const Main = styled.main`
     position: relative;
-    left: 100px;
+    left: 120px;
     margin: 88px auto;
     min-height: 88vh;
     min-height: 88dvh;
-    max-width: 60dvw;
+    max-width: 70dvw;
+
     @media screen and (max-width: 776px) {
       max-width: 80dvw;
-      left: 0px;
+      left: 20px;
 
     }
 `

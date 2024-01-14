@@ -4,14 +4,25 @@ import styled from 'styled-components'
 const Wrapper = styled.div`
     border: 1px solid white;
     max-width: 32em;
+    transition: transform 150ms ease-in-out;
+    transform: scale(1);
 
+    &:hover {
+        transform: scale(1.05);
+    }
 `
 const Cover = styled.div`
-    height: 12em;
+    height: 18em;
     position: relative;
     overflow: hidden;
     display: grid;
     align-content: end;
+    svg {
+        overflow: visible;
+        path {
+            filter: drop-shadow(0px 0px 1px var(--bg));
+        }
+    }
 `
 const Links = styled.div`
     display: flex;
@@ -20,6 +31,8 @@ const Links = styled.div`
     padding: 0 1em 0.5em;
     a {
         font-size: 1.75em;
+        stroke: 1px solid red;
+        fill: blue;
     }
 `
 const CoverImage = styled.img`
@@ -64,21 +77,30 @@ function ProjectsCard({github, youtube, website, image, name, description, chips
                 <Links>
                     <Flex>
                         <a href={github} target="_blank">
-                            <BsGithub /> {/* @todo ajustar cor icone */}
+                            <BsGithub/>
                         </a>
                         <a href={youtube} target="_blank">
                             <BsYoutube />
                         </a>
                     </Flex>
                     <div>
-                        <a href={website} target="_blank">
-                            <BsArrowUpRight /> {/* @todo if==null não mostrar */}
-                        </a>
+                        {
+                            website == '' ? 
+                                <></>
+                            :
+                                <a href={website} target="_blank">
+                                    <BsArrowUpRight />
+                                </a>
+                        }
                     </div>
                 </Links>
             </Cover>
             <Description>
-                <h4>{name}</h4> {/* @todo deixar um link no nome também */}
+                <h4>
+                    <a href={website == '' ? youtube : website}>
+                        {name}
+                    </a>
+                </h4>
                 <p>{description}</p>
                 <Flex>
                     {

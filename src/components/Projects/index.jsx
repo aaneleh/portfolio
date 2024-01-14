@@ -1,6 +1,7 @@
 import ProjectsCard from "../ProjectsCard"
 import styled from 'styled-components'
 
+import Twitter from '../../assets/twitterlike.png'
 import CasaVerde from '../../assets/casa.png'
 import Games from '../../assets/games.png'
 import Burger from '../../assets/burger.png'
@@ -26,7 +27,7 @@ function Projects() {
             <ProjectsWrapper>
                 <ProjectsCard 
                     github="https://github.com/aaneleh/twitterlike" youtube="https://m.youtube.com/watch?v=AOk1_-1RqCc" website=""
-                    image={""}
+                    image={Twitter}
                     name="Twitterlike" description="Rede social inesperada no X." 
                     chips={['React', 'Tailwind', 'MongoDB']}
                 />

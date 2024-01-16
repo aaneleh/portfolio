@@ -38,7 +38,7 @@ const Button = styled.button`
     border-radius: 1.75em;
     color: var(--font);
     font-size: 16px;
-    background-color: var(--bg); 
+    background-color: transparent; 
     border: 0.15em solid var(--light-bg); 
     transition: 150ms;
     &:hover {

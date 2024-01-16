@@ -11,21 +11,27 @@ const Navigation = styled.nav`
     position: fixed;
     top: 0;
     left: 0;
-    padding: 1em 2em;
+    height: 56px;
+    width: 100vw;
+    width: 100dvw;
+`
+const NavWrapper = styled.div`
+    background: var(--bg);
+    box-shadow: 0px 4px 8px var(--bg);
+    padding: 1em 3em 1em 2em;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 56px;
-    width: calc(100vw - 5em);
-    width: calc(100dvw - 5em);
+    width: 100%
     & h1 {
         z-index: 101;
     }
     * {
         color: var(--font);
     }
-`
 
+`
 const Button = styled.div`
     font-size: 2em;
     cursor: pointer;
@@ -33,12 +39,10 @@ const Button = styled.div`
         visibility: hidden;
     }
 `
-
 const Socials = styled.div`
     display: inline-flex;
     gap: 2em;
     background: var(--bg);
-
 
     @media screen and (max-width: 776px) {
         position: fixed;
@@ -54,7 +58,6 @@ const Socials = styled.div`
         & a:first-child{
             grid-column-end: span 4;
         }
-
         margin-top: -16em;
         transition: 200ms;
         &.active {
@@ -78,31 +81,33 @@ function Nav() {
 
     return (
         <Navigation className="nav"> 
-            <Link to="/">
-                <h3>
-                    HelenaKurz 
-                </h3>
-            </Link>
-            <Button onClick={ ()=> setSidebar(!sidebar) }>
-                <BsFillGridFill/>
-            </Button>
-            <Socials className={ sidebar ? "active" : ""}>
-                <a href="https://mail.google.com/mail/u/0/?fs=1&to=helenakurzgon@gmail.com&tf=cm" target="_blank">
-                    helenakurzgon@gmail.com
-                </a>
-                <a href="https://github.com/aaneleh" target="_blank" className="icon">
-                    <BsGithub />
-                </a>
-                <a href="https://br.linkedin.com/in/helena-kurz-1738a2256" target="_blank" className="icon">
-                    <BsLinkedin />
-                </a>
-                <a href="https://twitter.com/helena_kurzzz" target="_blank" className="icon">
-                    <BsTwitterX />
-                </a>
-                <a href="https://www.instagram.com/helena.kurz/" target="_blank" className="icon">
-                    <BsInstagram />
-                </a>
-            </Socials>
+            <NavWrapper>
+                <Link to="/">
+                    <h3>
+                        HelenaKurz 
+                    </h3>
+                </Link>
+                <Button onClick={ ()=> setSidebar(!sidebar) }>
+                    <BsFillGridFill/>
+                </Button>
+                <Socials className={ sidebar ? "active" : ""}>
+                    <a href="https://mail.google.com/mail/u/0/?fs=1&to=helenakurzgon@gmail.com&tf=cm" target="_blank">
+                        helenakurzgon@gmail.com
+                    </a>
+                    <a href="https://github.com/aaneleh" target="_blank" className="icon">
+                        <BsGithub />
+                    </a>
+                    <a href="https://br.linkedin.com/in/helena-kurz-1738a2256" target="_blank" className="icon">
+                        <BsLinkedin />
+                    </a>
+                    <a href="https://twitter.com/helena_kurzzz" target="_blank" className="icon">
+                        <BsTwitterX />
+                    </a>
+                    <a href="https://www.instagram.com/helena.kurz/" target="_blank" className="icon">
+                        <BsInstagram />
+                    </a>
+                </Socials>
+            </NavWrapper>
         </Navigation>
     )
 }

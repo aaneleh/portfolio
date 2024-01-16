@@ -65,6 +65,12 @@ const Chip = styled.p`
     background: var(--light-bg);
     padding: 0.25em 0.5em;
     border-radius: 1em;
+    height: 2ch;
+    overflow: hidden;
+    text-overflow: fade;
+    @media screen and (max-width: 700px){
+        font-size: 0.86em !important; 
+    }
 `
 
 

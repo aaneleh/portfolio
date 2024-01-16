@@ -22,7 +22,7 @@ const Main = styled.main`
 
     @media screen and (max-width: 776px) {
       max-width: 80dvw;
-      left: 20px;
+      left: 0px;
 
     }
 `

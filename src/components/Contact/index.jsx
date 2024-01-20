@@ -48,7 +48,7 @@ const Button = styled.button`
 `
 
 function Contact() {
-    
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -114,11 +114,10 @@ function Contact() {
                 },
             }
             );
-            const resStatus = await res.status;
-            /* console.log(resStatus) */
+            const resStatus = await res.status
             return true
         } catch (err) {
-            console.log(err);
+            console.log(err)
             return false
         }
     }

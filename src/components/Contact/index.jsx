@@ -77,49 +77,8 @@ function Contact() {
         const apiKey = API_KEY
         const apiEmail = API_EMAIL
 
-        sendEmail({
-            apiKey: apiKey,
-            to: formData.email,
-            from: apiEmail,
-            subject: 'Título',
-            html: '<div><h4>Agredeço a mensagem, entrarei em contato assim que possível</h4><p>Abaixo incluo uma cópia da mensagem enviada:</p><br>' + formData.body + '</div>'
-        }) ?
-            alert("Email enviado com sucesso, obrigada pelo contato!")
-        :
-            alert('Erro ao enviar email!')
+        window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=helenakurzgon@gmail.com&body=${formData.body}&bcc=${formData.email}`, "_blank", "noreferrer");
 
-        sendEmail({
-            apiKey: apiKey,
-            to: apiEmail,
-            from: apiEmail,
-            subject: 'Contato a partir do portifolio',
-            html: formData.body + "<br>Enviado por: " + formData.email
-        }) ?
-            alert("Email enviado com sucesso, obrigada pelo contato!")
-        :
-            alert('Erro ao enviar email!')
-    }
-
-    const sendEmail = async(body) => {
-        const apiUrl = API_URL
-
-        try {
-            const res = await fetch(
-                apiUrl, 
-            {
-                method: 'POST',
-                body: JSON.stringify(body),
-                headers:  {
-                'Content-Type': 'application/json'
-                },
-            }
-            );
-            const resStatus = await res.status
-            return true
-        } catch (err) {
-            console.log(err)
-            return false
-        }
     }
 
     return (

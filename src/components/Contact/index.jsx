@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 const API_KEY = import.meta.env.VITE_SG_APIKEY
 const API_EMAIL = import.meta.env.VITE_SG_EMAIL
+const API_URL = import.meta.env.VITE_API_URL
 
 const InputContainer = styled.div`
     display: grid;
@@ -75,17 +76,17 @@ function Contact() {
 
         const apiKey = API_KEY
         const apiEmail = API_EMAIL
-        
+
         sendEmail({
             apiKey: apiKey,
             to: formData.email,
             from: apiEmail,
             subject: 'Título',
-            html: '<h4>Agredeço a mensagem, entrarei em contato assim que possível</h4><p>Abaixo incluo uma cópia da mensagem enviada:</p><br>' + formData.body
+            html: '<div><h4>Agredeço a mensagem, entrarei em contato assim que possível</h4><p>Abaixo incluo uma cópia da mensagem enviada:</p><br>' + formData.body + '</div>'
         }) ?
             alert("Email enviado com sucesso, obrigada pelo contato!")
         :
-            alert('Erro ao enviar email!');
+            alert('Erro ao enviar email!')
 
         sendEmail({
             apiKey: apiKey,
@@ -93,13 +94,18 @@ function Contact() {
             from: apiEmail,
             subject: 'Contato a partir do portifolio',
             html: formData.body + "<br>Enviado por: " + formData.email
-        })
+        }) ?
+            alert("Email enviado com sucesso, obrigada pelo contato!")
+        :
+            alert('Erro ao enviar email!')
     }
 
     const sendEmail = async(body) => {
+        const apiUrl = API_URL
+
         try {
             const res = await fetch(
-            'https://enviador.vercel.app/', 
+                apiUrl, 
             {
                 method: 'POST',
                 body: JSON.stringify(body),
@@ -108,14 +114,13 @@ function Contact() {
                 },
             }
             );
-            const resTxt = await res.text();
-            console.log(resTxt);
+            const resStatus = await res.status;
+            /* console.log(resStatus) */
             return true
         } catch (err) {
             console.log(err);
             return false
         }
-
     }
 
     return (

@@ -16,6 +16,7 @@ const SidebarWrapper = styled.nav`
         top: auto;
         transform: translateY(0%);
         gap: 3em;
+        padding-left: 0.5em;
         flex-direction: row;
         justify-content: center;
         width: 100dvw;

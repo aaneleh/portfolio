@@ -70,12 +70,8 @@ function Contact() {
         if(!formData.email.includes('@') || formData.email.length < 11 ||
         formData.name.length < 2 || formData.body.length < 2) {
             alert('dados incompletos')
-            console.log('dados incompletos')
             return
         }
-
-        const apiKey = API_KEY
-        const apiEmail = API_EMAIL
 
         window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=helenakurzgon@gmail.com&body=${formData.body}&bcc=${formData.email}`, "_blank", "noreferrer");
 

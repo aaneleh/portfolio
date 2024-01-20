@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Selfie from '../../assets/selfie.jpeg'
+import Selfie from '../../assets/selfie.jpg'
 
 const Wrapper = styled.div`
     img {

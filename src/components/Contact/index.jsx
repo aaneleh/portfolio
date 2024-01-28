@@ -1,9 +1,6 @@
 import styled from 'styled-components'
 import { useState } from 'react'
-
-const API_KEY = import.meta.env.VITE_SG_APIKEY
-const API_EMAIL = import.meta.env.VITE_SG_EMAIL
-const API_URL = import.meta.env.VITE_API_URL
+import PopUp from '../Pop-up'
 
 const InputContainer = styled.div`
     display: grid;
@@ -49,6 +46,9 @@ const Button = styled.button`
 
 function Contact() {
 
+    const [ popUpError, setPopUpError] = useState(false);
+    const [ popUpThanks, setPopUpThanks] = useState(false);
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -69,12 +69,12 @@ function Contact() {
 
         if(!formData.email.includes('@') || formData.email.length < 11 ||
         formData.name.length < 2 || formData.body.length < 2) {
-            alert('dados incompletos')
+            setPopUpError(true)
             return
         }
 
+        setPopUpThanks(true)
         window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=helenakurzgon@gmail.com&body=${formData.body}&bcc=${formData.email}`, "_blank", "noreferrer");
-
     }
 
     return (
@@ -99,6 +99,10 @@ function Contact() {
                     </Button>
                 </InputContainer>
             </form>
+
+            <PopUp trigger={popUpError} setTrigger={setPopUpError} title={'Dados Incompletos'} description={'Por favor, preencha corretamente todos os campos'} button={'Voltar'}/>
+            <PopUp trigger={popUpThanks} setTrigger={setPopUpThanks} title={'Obrigada!'} description={'Agradeço o contato, responderei assim que possível!'} button={'Voltar'}/>
+
         </section>
     )
 }

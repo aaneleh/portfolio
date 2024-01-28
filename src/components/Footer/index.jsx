@@ -17,7 +17,6 @@ const FooterContainer = styled.div`
         flex-direction: column;
         align-items: center;
         gap: 2em;
-        margin-bottom: 8em;
     }
     * {
         color: var(--font);
@@ -40,6 +39,14 @@ const FooterContainer = styled.div`
         transition: width 150ms;
     }
 ` 
+const Copyright = styled.div`
+    display: flex;
+    justify-content: center;
+    padding: 0 0 2em;
+    @media screen and (max-width: 776px){
+        margin-bottom: 8em;
+    }
+`
 const FooterContent = styled.div`
     display: flex;
     flex-direction: column;
@@ -86,6 +93,9 @@ function Footer() {
                     </Socials>
                 </FooterContent>
             </FooterContainer>
+            <Copyright>
+                © 2024 Helena Kurz Gonçalves. Todos os Direitos Reservados
+            </Copyright>
         </FooterWrapper>
     )
 }
